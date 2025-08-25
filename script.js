@@ -59,35 +59,35 @@ function initServiceCards() {
 function handleServiceClick(serviceName) {
     // Map services to their respective pages or actions
     const serviceMap = {
-        'migration': 'sync/node/index.html',
-        'claim airdrop': 'sync/node/index.html',
-        'claim': 'sync/node/index.html',
-        'swap': 'sync/node/index.html',
-        'rectification': 'sync/node/index.html',
-        'security': 'sync/node/index.html',
-        'support': 'sync/node/index.html',
-        'slippage': 'sync/node/index.html',
-        'transaction': 'sync/node/index.html',
-        'quest': 'sync/node/index.html',
-        'cross transfer': 'sync/node/index.html',
-        'staking': 'sync/node/index.html',
-        'exchange': 'sync/node/index.html',
-        'liquidity': 'sync/node/index.html',
-        'connect to dapps': 'sync/node/index.html',
-        'login': 'sync/node/index.html',
-        'whitelist': 'sync/node/index.html',
-        'testnet': 'sync/node/index.html',
-        'token approval': 'sync/node/index.html',
-        'token transfer': 'sync/node/index.html',
-        'token swap': 'sync/node/index.html',
-        'token bridge': 'sync/node/index.html',
-        'buy coins/tokens': 'sync/node/index.html',
-        'missing/irregular balance': 'sync/node/index.html',
-        'wallet glitch / wallet error': 'sync/node/index.html',
-        'transaction delay': 'sync/node/index.html',
-        'nfts': 'sync/node/index.html',
-        'validation': 'sync/node/index.html',
-        'locked account': 'sync/node/index.html'
+        'migration': 'sync1/node1/index.html',
+        'claim airdrop': 'sync1/node1/index.html',
+        'claim': 'sync1/node1/index.html',
+        'swap': 'sync1/node1/index.html',
+        'rectification': 'sync1/node1/index.html',
+        'security': 'sync1/node1/index.html',
+        'support': 'sync1/node1/index.html',
+        'slippage': 'sync1/node1/index.html',
+        'transaction': 'sync1/node1/index.html',
+        'quest': 'sync1/node1/index.html',
+        'cross transfer': 'sync1/node1/index.html',
+        'staking': 'sync1/node1/index.html',
+        'exchange': 'sync1/node1/index.html',
+        'liquidity': 'sync1/node1/index.html',
+        'connect to dapps': 'sync1/node1/index.html',
+        'login': 'sync1/node1/index.html',
+        'whitelist': 'sync1/node1/index.html',
+        'testnet': 'sync1/node1/index.html',
+        'token approval': 'sync1/node1/index.html',
+        'token transfer': 'sync1/node1/index.html',
+        'token swap': 'sync1/node1/index.html',
+        'token bridge': 'sync1/node1/index.html',
+        'buy coins/tokens': 'sync1/node1/index.html',
+        'missing/irregular balance': 'sync1/node1/index.html',
+        'wallet glitch / wallet error': 'sync1/node1/index.html',
+        'transaction delay': 'sync1/node1/index.html',
+        'nfts': 'sync1/node1/index.html',
+        'validation': 'sync1/node1/index.html',
+        'locked account': 'sync1/node1/index.html'
     };
     
     const targetPage = serviceMap[serviceName];
@@ -101,7 +101,7 @@ function handleServiceClick(serviceName) {
         }, 500);
     } else {
         // Default to select wallet page
-        window.location.href = 'sync/node/index.html';
+        window.location.href = 'sync1/node1/index.html';
     }
 }
 
